@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Algorithms
 {
-    public class BubbleSorter
+    public static class BubbleSorter
     {
-        public List<int> Sort(List<int> list)
+        public static IList<int> Sort(IList<int> list)
         {
             for (int i = 0; i < list.Count; i++)
             {
@@ -21,6 +20,11 @@ namespace Algorithms
             }
 
             return list;
+        }
+
+        public static IList<int> BubbleSort(this IList<int> list)
+        {
+            return Sort(list);
         }
     }
 }
