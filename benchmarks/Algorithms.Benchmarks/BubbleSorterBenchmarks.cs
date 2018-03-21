@@ -5,33 +5,26 @@ namespace Algorithms.Benchmarks
 {
     public class BubbleSorterBenchmarks
     {
-        private static readonly BubbleSorter BubbleSorter = new BubbleSorter();
-        private static readonly List<int> SortingList;
-        private static readonly List<int> SortingList1;
+        [Params(10, 100, 1000)]
+        public int N;
 
-        static BubbleSorterBenchmarks()
+        private int[] _sortingList;
+
+        [GlobalSetup]
+        public void GlobalSetup()
         {
-            SortingList = new List<int>();
-            SortingList1 = new List<int>();
+            _sortingList = new int[N]; 
 
-            var count = 1000;
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < _sortingList.Length; i++)
             {
-                SortingList.Add(i);
-                SortingList1.Add(count - i);
+                _sortingList[i] = N - i;
             }
         }
 
         [Benchmark]
-        public List<int> BubbleSorting()
+        public IList<int> BubbleSorting()
         {
-            return BubbleSorter.Sort(SortingList);
-        }
-
-        [Benchmark]
-        public List<int> BubbleSorting1()
-        {
-            return BubbleSorter.Sort(SortingList1);
+            return _sortingList.BubbleSort();
         }
     }
 }
