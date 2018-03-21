@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Algorithms.Sorting;
 using BenchmarkDotNet.Attributes;
 
 namespace Algorithms.Benchmarks
 {
-    public class BubbleSorterBenchmarks
+    public class SorterBenchmarks
     {
         [Params(10, 100, 1000)]
         public int N;
@@ -25,6 +26,12 @@ namespace Algorithms.Benchmarks
         public IList<int> BubbleSorting()
         {
             return _sortingList.BubbleSort();
+        }
+
+        [Benchmark]
+        public IList<int> SelectionSorting()
+        {
+            return _sortingList.SelectionSort();
         }
     }
 }

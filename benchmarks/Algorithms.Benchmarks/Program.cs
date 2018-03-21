@@ -8,7 +8,7 @@ namespace Algorithms.Benchmarks
     {
         public static void Main()
         {
-            BenchmarkSwitcher.FromAssembly(Assembly.GetAssembly(typeof(BubbleSorterBenchmarks))).RunAll();
+            BenchmarkSwitcher.FromAssembly(Assembly.GetAssembly(typeof(SorterBenchmarks))).RunAll();
             Console.ReadLine();
         }
     }
