@@ -14,12 +14,7 @@ namespace Algorithms.Sorting
                     if (list[j] < list[iMin]) iMin = j;
                 }
 
-                if(i != iMin)
-                {
-                    var temp = list[i];
-                    list[i] = list[iMin];
-                    list[iMin] = temp;
-                }
+                if(i != iMin) list.Swap(i, iMin);
             }
             return list;
         }

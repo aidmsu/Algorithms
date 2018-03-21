@@ -10,12 +10,7 @@ namespace Algorithms
             {
                 for (int j = 1; j < list.Count - i; j++)
                 {
-                    if (list[j - 1] > list[j])
-                    {
-                        var temp = list[j];
-                        list[j] = list[j - 1];
-                        list[j - 1] = temp;
-                    }   
+                    if (list[j - 1] > list[j]) list.Swap(j - 1, j);
                 }
             }
 
