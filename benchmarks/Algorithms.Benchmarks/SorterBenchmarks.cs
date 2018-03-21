@@ -6,7 +6,7 @@ namespace Algorithms.Benchmarks
 {
     public class SorterBenchmarks
     {
-        [Params(10, 100, 1000)]
+        [Params(10, 100)]
         public int N;
 
         private int[] _sortingList;
@@ -32,6 +32,12 @@ namespace Algorithms.Benchmarks
         public IList<int> SelectionSorting()
         {
             return _sortingList.SelectionSort();
+        }
+
+        [Benchmark]
+        public IList<int> InsertionSorting()
+        {
+            return _sortingList.InsertionSort();
         }
     }
 }
